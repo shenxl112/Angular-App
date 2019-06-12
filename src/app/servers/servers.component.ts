@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   // selector: '[app-servers]', //attribute
   // selector: '.app-servers',  //class
   
-  // template: `
+  // template: ` 
   //   <app-server></app-server>
   //   <app-server></app-server>`,
   templateUrl: './servers.component.html',
@@ -13,8 +13,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
-  serverCreationStatus = 'No server was created!';
-  serverName = '';
+  serverCreationStatus = 'No server was created';
+  serverName = 'TestServer';
 
   constructor() { 
     setTimeout(() => {
@@ -25,12 +25,13 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onCreateServer() {
-    this.serverCreationStatus = 'Server was created';
+  onCreateServer(){
+    this.serverCreationStatus = 'Server was Created! Name is ' + this.serverName;
   }
 
   onUpdateServerName(event: Event){
     // console.log(event);
     this.serverName = (<HTMLInputElement>event.target).value;
   }
+  
 }
